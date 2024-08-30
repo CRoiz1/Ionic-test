@@ -1,0 +1,19 @@
+<ion-content>
+  <!-- Mensaje mientras los datos se están cargando -->
+  <ion-spinner *ngIf="isLoading"></ion-spinner>
+
+  <!-- Mensaje de error o falta de usuarios -->
+  <div *ngIf="errorMessage">
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <!-- Lista de usuarios -->
+  <ion-list *ngIf="!isLoading && !errorMessage">
+    <ion-item *ngFor="let user of users">
+      <ion-label>
+        <h2>{{ user.name }}</h2>
+        <p>{{ user.email }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
